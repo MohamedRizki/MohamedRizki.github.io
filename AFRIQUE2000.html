@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Projet Web Mapping avec Leaflet</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/business-casual.css" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="Css/leaflet.css" />
+	<link rel = "stylesheet" type="text/css" href = "Css/style.css">
+	<script src="JAVA/leaflet.js"></script>
+    <script src="JAVA/L.Control.BetterScale.js"></script>
+    <script src="JAVA/leaflet.curve.js"></script>
+    <script src="JAVA/leaflet-providers.js"></script>	
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.4.12/leaflet.draw.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.4.12/leaflet.draw.css"/>
+    <script src="JAVA/Leaflet.StyleEditor.min.js"></script>
+    <link rel="stylesheet" href="Css/Leaflet.StyleEditor.min.css"/>
+    <script src="JAVA/leaflet.fusesearch.js"></script>
+    <link rel="stylesheet" href="Css/leaflet.fusesearch.css"/>
+    	<link rel = "stylesheet" type="text/css" href = "css/styles.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div class="brand">Projet Web Mapping avec Leaflet</div>
+    <div class="address-bar">RIZKI Mohamed | Master GNSS | IAV & CRASTE-LF</div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
+                <a class="navbar-brand" href="index.html">Business Casual</a>
+            </div>
+        </div>
+</div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+	<div id='cssmenu'>
+<ul>
+   <li><a href='index.html'><span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspAcceuil</span></a></li>
+   <li class='active has-sub'><a href='#'><span>&nbsp&nbsp&nbsp&nbsp&nbspEmissions de CO2</span></a>
+      <ul>
+         <li class='has-sub'><a href='#'><span>LE MONDE</span></a>
+            <ul>
+               <li><a href='MONDE2005.html'><span>l'Année 2005</span></a></li>
+               <li class='last'><a href='MONDE2007.html'><span>l'Année 2007</span></a></li>
+               <li class='last'><a href='MONDE.html'><span>Evolution des émissions</span></a></li>
+            </ul>
+         </li>
+         <li class='has-sub'><a href='#'><span>L'Afrique</span></a>
+            <ul>
+               <li><a href='AFRIQUE1995.html'><span>l'Année 1995</span></a></li>
+               <li class='last'><a href='AFRIQUE2000.html'><span>l'Année 2000</span></a></li>
+               <li class='last'><a href='AFRIQUE2005.html'><span>l'Année 2005</span></a></li>
+            </ul>
+         </li>
+         <li class='has-sub'><a href='#'><span>Le Maroc</span></a>
+            <ul>
+               <li><a href='Maroc1995.html'><span>l'Année 1995</span></a></li>
+               <li class='last'><a href='Maroc2000.html'><span>l'Année 2000</span></a></li>
+               <li class='last'><a href='Maroc2005.html'><span>l'Année 2005</span></a></li>
+            </ul>
+         </li>
+      </ul>
+   </li>
+   <li><a href='Contact.html'><span>&nbsp&nbsp&nbsp&nbsp&nbspContact</span></a></li>
+   <li class='last'><a href='#'onClick="window.close();"><span>&nbsp&nbsp&nbsp&nbsp&nbspQuitter</span></a></li>
+</ul>
+    </div>
+        <!-- /.container -->
+    </nav>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-12">
+                    <hr>
+                    <h2>Cartes de l'évolution de CO2 entre 1995 et 2005 de l'Afrique. &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</h2>
+                    <p class="pouet">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Émissions de CO2 par habitant  pendant l'année 2000 pour les pays africains:</p>
+                    </h2>
+                    <hr>
+                </div>
+                <div class="col-lg-12 text-center">
+<div class="col-lg-12" style="text-align: Justify;">
+
+<div id="mapid" style="width: 1115px; height: 500px;"></div>
+<script src="JAVA/Region.js" type="text/javascript"></script>
+<script>
+  var mymap = L.map('mapid').setView([13.923404, 26.71875], 2);
+
+
+  L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+    maxZoom: 18,
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+      '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+      'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+    id: 'mapbox.streets'
+  }).addTo(mymap);
+L.control.betterscale().addTo(mymap);
+
+
+
+
+
+
+
+
+
+var searchCtrl = L.control.fuseSearch()
+searchCtrl.addTo(mymap);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+let styleEditor = L.control.styleEditor({
+    position: 'topleft',
+    useGrouping: false
+  })
+  mymap.addControl(styleEditor)
+
+  //Leaflet.draw
+
+  let drawnItems = new L.FeatureGroup()
+  mymap.addLayer(drawnItems)
+
+  let drawControl = new L.Control.Draw({
+    draw: {
+      position: 'topleft',
+      polygon: {
+        title: 'Draw a sexy polygon!',
+        allowIntersection: false,
+        drawError: {
+          color: '#b00b00',
+          timeout: 1000
+        },
+        shapeOptions: {
+          color: '#bada55'
+        },
+        showArea: true
+      },
+      polyline: {
+        metric: false
+      },
+      circle: {
+        shapeOptions: {
+          color: '#662d91'
+        }
+      },
+      marker: {
+        icon: styleEditor.getDefaultIcon()
+      }
+    },
+    edit: {
+      featureGroup: drawnItems
+    }
+  })
+  mymap.addControl(drawControl)
+
+  mymap.on('draw:created', function (e) {
+    let type = e.layerType,
+      layer = e.layer
+
+    if (type === 'marker') {
+      layer.bindPopup('A popup!')
+    }
+
+    drawnItems.addLayer(layer)
+  })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  L.marker([32.842674, -7.03125]).addTo(mymap)
+    .bindPopup("<b> <i></i> </b>Maroc: CO2 Moyenne");
+      L.marker([32.10119, 2.8125]).addTo(mymap)
+    .bindPopup("<b> <i></i> </b> Algérie: CO2 Moyenne");
+      L.marker([32.694866, 9.84375]).addTo(mymap)
+    .bindPopup("<b> <i></i> </b> Tunisie: CO2 Moyenne");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    L.marker([-19.290406, 29.882813]).addTo(mymap)
+    .bindPopup("<b> <i></i> </b>Zimbabwe: CO2 Moyenne");
+      L.marker([-21.534847, 23.994141]).addTo(mymap)
+    .bindPopup("<b> <i></i> </b> Botswana: CO2 Moyenne");
+      L.marker([-21.698265, 15.908203]).addTo(mymap)
+    .bindPopup("<b> <i></i> </b> Namibia: CO2 Moyenne");
+    L.marker([26.74561, 29.53125]).addTo(mymap)
+    .bindPopup("<b> <i></i> </b>Egypte: CO2 Moyenne");
+  L.marker([9.102097, 7.382813]).addTo(mymap)
+    .bindPopup("<b> <i></i> </b> Nigeria: CO2 Moyenne");
+function getColor(d) {
+    return d > 4.20 ? '#FF0000' :
+    d > 3.60 ? '#FF4000' :
+    d > 3 ?'#FF8000' :
+    d > 2.40 ? '#FFBF00' :
+    d > 1.80 ? '#FFFF00' :
+    d > 1.20 ? '#BFFF00' :
+    d > 0.60 ? '#80FF00' :
+    d > 0 ? '#40FF00' :
+    '#000000';
+        
+  }
+
+  function Monstyle(feature) {
+    return {
+      weight: 2,
+      opacity: 1,
+      color: 'white',
+      dashArray: '3',
+      fillOpacity: 0.7,
+      fillColor: getColor(feature.properties.POP2000_1)
+    };
+  }
+var geojson = L.geoJson(Region, {
+    style: Monstyle,
+  }).addTo(mymap);
+  var popup = L.popup();
+  function onMapClick(e) {
+    popup
+      .setLatLng(e.latlng)
+      .setContent("You clicked the map at " + e.latlng.toString())
+      .openOn(mymap);
+  }
+  mymap.on('click', onMapClick);
+var legend = L.control({position: 'bottomright'});
+legend.onAdd = function (mymap) {
+    var div = L.DomUtil.create('div', 'info legend'),
+        grades = [0,0.6,1.2,1.8,2.4,3,3.6],
+        labels = [];
+        div.innerHTML = '<div><b>CO2 afrique 2000</b></div>';
+            // loop through our density intervals and generate a label with a colored square for each interval
+    for (var i = 0; i < grades.length; i++) {
+        div.innerHTML +=
+            '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
+            grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+    }
+   ;
+    return div;
+};
+legend.addTo(mymap);
+function highlightFeature(e) {
+      var layer = e.target;
+      layer.setStyle({
+          weight: 5,
+          color: '#666',
+          dashArray: '',
+          fillOpacity: 0.7
+      });
+      if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+          layer.bringToFront();
+      }
+          inf.update(layer.feature.properties);
+  }
+  function resetHighlight(e) {
+      geojson.resetStyle(e.target);
+          inf.update();
+  }
+  function zoomToFeature(e) {
+    map.fitBounds(e.target.getBounds());
+}
+  function onEachFeature(feature, layer) {
+    layer.on({
+        mouseover: highlightFeature,
+        mouseout: resetHighlight,
+        click: zoomToFeature
+    });
+}
+var inf = L.control();
+
+inf.onAdd = function (mymap) {
+    this._div = L.DomUtil.create('div', 'inf'); // create a div with a class "info"
+    this.update();
+    return this._div;
+};
+// method that we will use to update the control based on feature properties passed
+inf.update = function (props) {
+    this._div.innerHTML = '<h4>CO2 Total du payée en 2000</h4>' +  (props ?
+        'Payée : <b>' + props.COUNTRY + '</b> <br />Valeur de CO2 : ' + props.POP2000_1 + ' tm/h</sup>'
+        : 'Merci de mettre le cursuer sur le payée');
+};
+
+inf.addTo(mymap);
+
+  var geojson = L.geoJson(Region, {
+    style: Monstyle,
+      onEachFeature: onEachFeature,
+}).addTo(mymap);
+var pathFour = L.curve(['M',[32.842674, -7.03125],
+                  [32.10119, 2.8125],
+                  [32.694866, 9.84375]], {dashArray: 5, animate: {duration: 3000, iterations: Infinity}}).addTo(mymap);
+var pathFour = L.curve(['M',[-19.290406, 29.882813],
+                  [-21.534847, 23.994141],
+                  [-21.698265, 15.908203]], {dashArray: 5, animate: {duration: 3000, iterations: Infinity}}).addTo(mymap);
+var defaultLayer = L.tileLayer.provider('OpenStreetMap.Mapnik').addTo(mymap);
+
+    var baseLayers = {
+      'OpenStreetMap Default': defaultLayer,
+      'OpenStreetMap German Style': L.tileLayer.provider('OpenStreetMap.DE'),
+      'OpenStreetMap Black and White': L.tileLayer.provider('OpenStreetMap.BlackAndWhite'),
+      'OpenStreetMap H.O.T.': L.tileLayer.provider('OpenStreetMap.HOT'),
+      'Thunderforest OpenCycleMap': L.tileLayer.provider('Thunderforest.OpenCycleMap'),
+      'Thunderforest Transport': L.tileLayer.provider('Thunderforest.Transport'),
+      'Thunderforest Landscape': L.tileLayer.provider('Thunderforest.Landscape'),
+      'Hydda Full': L.tileLayer.provider('Hydda.Full'),
+      'Stamen Toner': L.tileLayer.provider('Stamen.Toner'),
+      'Stamen Terrain': L.tileLayer.provider('Stamen.Terrain'),
+      'Stamen Watercolor': L.tileLayer.provider('Stamen.Watercolor'),
+      'Esri WorldStreetMap': L.tileLayer.provider('Esri.WorldStreetMap'),
+      'Esri DeLorme': L.tileLayer.provider('Esri.DeLorme'),
+      'Esri WorldTopoMap': L.tileLayer.provider('Esri.WorldTopoMap'),
+      'Esri WorldImagery': L.tileLayer.provider('Esri.WorldImagery'),
+      'Esri WorldTerrain': L.tileLayer.provider('Esri.WorldTerrain'),
+      'Esri WorldShadedRelief': L.tileLayer.provider('Esri.WorldShadedRelief'),
+      'Esri WorldPhysical': L.tileLayer.provider('Esri.WorldPhysical'),
+      'Esri OceanBasemap': L.tileLayer.provider('Esri.OceanBasemap'),
+      'Esri NatGeoWorldMap': L.tileLayer.provider('Esri.NatGeoWorldMap'),
+      'Esri WorldGrayCanvas': L.tileLayer.provider('Esri.WorldGrayCanvas'),
+      'Geoportail France Maps': L.tileLayer.provider('GeoportailFrance'),
+      'Geoportail France Orthos': L.tileLayer.provider('GeoportailFrance.orthos'),
+      'Geoportail France classic maps': L.tileLayer.provider('GeoportailFrance.ignMaps')
+    };
+
+    var overlayLayers = {
+      
+    };
+    L.control.layers(baseLayers, overlayLayers).addTo(mymap);
+
+
+    // resize layers control to fit into view.
+    function resizeLayerControl () {
+      var layerControlHeight = document.body.clientHeight - (10 + 50);
+      var layerControl = document.getElementsByClassName('leaflet-control-layers-expanded')[0];
+
+      layerControl.style.overflowY = 'auto';
+      layerControl.style.maxHeight = layerControlHeight + 'px';
+    }
+    map.on('resize', resizeLayerControl);
+    resizeLayerControl();
+</script>
+</div>
+
+                    <hr>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+    <!-- /.container -->
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
